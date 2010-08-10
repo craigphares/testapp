@@ -1,0 +1,10 @@
+--- 
+group: mongrel
+address: 127.0.0.1
+log_file: log/mongrel.log
+port: "4000"
+cwd: /var/www/vhosts/testapp.sixoverground.com/rails/testapp
+environment: production
+user: mongrel
+pid_file: /var/run/mongrel_cluster/mongrel.pid
+servers: 3
