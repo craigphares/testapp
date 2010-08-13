@@ -1,4 +1,5 @@
 default_run_options[:pty] = true
+default_run_options[:shell] = false
 
 set :application, "testapp"
 set :repository,  "git@github.com:craigphares/testapp.git"
@@ -11,7 +12,6 @@ set :branch, "master"
 set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :shell, false
 
 ssh_options[:forward_agent] = true
 
