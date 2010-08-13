@@ -1,6 +1,3 @@
-default_run_options[:pty] = true
-default_run_options[:shell] = false
-
 set :application, "testapp"
 set :repository,  "git@github.com:craigphares/testapp.git"
 
