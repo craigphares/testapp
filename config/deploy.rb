@@ -11,6 +11,7 @@ set :branch, "master"
 set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+set :shell, false
 
 ssh_options[:forward_agent] = true
 
