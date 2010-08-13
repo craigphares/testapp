@@ -7,11 +7,14 @@ set :scm, "git"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :user, "deployer"
+set :branch, "master"
+set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+role :web, "testapp.sixoverground.com"                    # Your HTTP server, Apache/etc
+role :app, "testapp.sixoverground.com"                    # This may be the same as your `Web` server
+role :db,  "testapp.sixoverground.com", :primary => true  # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
