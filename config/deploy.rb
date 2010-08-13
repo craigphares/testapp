@@ -12,6 +12,8 @@ set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
+ssh_options[:forward_agent] = true
+
 role :web, "testapp.sixoverground.com"                    # Your HTTP server, Apache/etc
 role :app, "testapp.sixoverground.com"                    # This may be the same as your `Web` server
 role :db,  "testapp.sixoverground.com", :primary => true  # This is where Rails migrations will run
