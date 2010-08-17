@@ -1,6 +1,6 @@
 #require 'mongrel_cluster/recipes'
 
-default_run_options[:pty] = true
+#default_run_options[:pty] = true
 
 set :application, "testapp"
 set :repository,  "git@github.com:craigphares/testapp.git"
@@ -12,10 +12,10 @@ set :user, "deployer"
 set :branch, "master"
 set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
-#set :use_sudo, false
+set :use_sudo, false
 set :runner, nil
 
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+#set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 ssh_options[:forward_agent] = true
 
@@ -34,3 +34,20 @@ role :db,  "testapp.sixoverground.com", :primary => true  # This is where Rails 
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :deploy do
+  
+  task :start, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+
+  task :stop, :roles => :app do
+    # Do nothing.
+  end
+
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+  
+end
