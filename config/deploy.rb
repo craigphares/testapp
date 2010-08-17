@@ -1,3 +1,5 @@
+require 'mongrel_cluster/recipes'
+
 set :application, "testapp"
 set :repository,  "git@github.com:craigphares/testapp.git"
 
@@ -9,6 +11,8 @@ set :branch, "master"
 set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+
+set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 ssh_options[:forward_agent] = true
 
