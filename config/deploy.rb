@@ -1,4 +1,6 @@
-require 'mongrel_cluster/recipes'
+#require 'mongrel_cluster/recipes'
+
+default_run_options[:pty] = true
 
 set :application, "testapp"
 set :repository,  "git@github.com:craigphares/testapp.git"
@@ -10,7 +12,8 @@ set :user, "deployer"
 set :branch, "master"
 set :deploy_to, "/var/www/vhosts/testapp.sixoverground.com/rails/#{application}"
 set :deploy_via, :remote_cache
-set :use_sudo, false
+#set :use_sudo, false
+set :runner, nil
 
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 

@@ -3,6 +3,6 @@
 /var/www/vhosts/testapp.sixoverground.com/rails/testapp/current/script/process/spawner \
   mongrel \
   --environment=production \
-  --instances=1 \
+  --instances=3 \
   --address=127.0.0.1 \
   --port=4000
